@@ -22,7 +22,8 @@ class OneSignalController extends Controller
             'restApiKey'=>'required',
             'appId'=>'required',
             'title'=>'required',
-            'body'=>'required'
+            'body'=>'required',
+            'schedule'=>'date_format:Y-m-d H:i:s',
         ]);
         
         $this->restApiKey = $request->restApiKey;
@@ -43,7 +44,7 @@ class OneSignalController extends Controller
         }
 
         if (isset($request->schedule)) {
-            $params['send_after'] = $request->schedule;
+            $params['send_after'] = $request->schedule.' GMT+0700';
         }
 
         $this->data = $params;
@@ -64,14 +65,15 @@ class OneSignalController extends Controller
             'appId'=>'required',
             'title'=>'required',
             'body'=>'required',
-            'userIds'=>'required|array'
+            'userIds'=>'required',
+            'schedule'=>'date_format:Y-m-d H:i:s',
         ]);
         
         $this->restApiKey = $request->restApiKey;
 
         $params = [
             'app_id' => $request->appId,
-            'include_player_ids' => $request->userIds,
+            'include_player_ids' => (is_string($request->userIds))?[$request->userIds]:$request->userIds,
             'contents' => [
                 'en'=>$request->body
             ],
@@ -85,7 +87,7 @@ class OneSignalController extends Controller
         }
 
         if (isset($request->schedule)) {
-            $params['send_after'] = $request->schedule;
+            $params['send_after'] = $request->schedule.' GMT+0700';
         }
 
         $this->data = $params;
@@ -106,7 +108,8 @@ class OneSignalController extends Controller
             'appId'=>'required',
             'title'=>'required',
             'body'=>'required',
-            'tags'=>'required|array'
+            'tags'=>'required|array',
+            'schedule'=>'date_format:Y-m-d H:i:s',
         ]);
         
         $this->restApiKey = $request->restApiKey;
@@ -127,7 +130,7 @@ class OneSignalController extends Controller
         }
 
         if (isset($request->schedule)) {
-            $params['send_after'] = $request->schedule;
+            $params['send_after'] = $request->schedule.' GMT+0700';
         }
 
         $this->data = $params;
@@ -148,14 +151,15 @@ class OneSignalController extends Controller
             'appId'=>'required',
             'title'=>'required',
             'body'=>'required',
-            'segments'=>'required|array'
+            'segments'=>'required',
+            'schedule'=>'date_format:Y-m-d H:i:s',
         ]);
         
         $this->restApiKey = $request->restApiKey;
 
         $params = [
             'app_id' => $request->appId,
-            'included_segments' => $request->segments,
+            'included_segments' => (is_string($request->segments))?[$request->segments]:$request->segments,
             'contents' => [
                 'en'=>$request->body
             ],
@@ -169,7 +173,7 @@ class OneSignalController extends Controller
         }
 
         if (isset($request->schedule)) {
-            $params['send_after'] = $request->schedule;
+            $params['send_after'] = $request->schedule.' GMT+0700';
         }
 
         $this->data = $params;

@@ -36,9 +36,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 	        $router->post('/users', 'OneSignalController@users');
 	        $router->post('/tags', 'OneSignalController@tags');
 	        $router->post('/segments', 'OneSignalController@segments');
-
 	        $router->delete('/cancel', 'OneSignalController@cancel');
-	        $router->post('/custom', 'OneSignalController@custom');
 	    });
     });
 });

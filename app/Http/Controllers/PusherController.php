@@ -11,8 +11,11 @@ class PusherController extends Controller
 	protected $key='ec77a7c48ef69b22b5bf';
 	protected $app_id='720184';
 
-	protected $instanceId='ab3f9203-87ed-4836-a54b-56fa338e1b15';
-	protected $secretKey='57BC8B8D180B1B7207065D7436C018FBA0F10E2A150888D9ED44DBBD8CB093E4';
+	// protected $instanceId='ab3f9203-87ed-4836-a54b-56fa338e1b15';
+	// protected $secretKey='57BC8B8D180B1B7207065D7436C018FBA0F10E2A150888D9ED44DBBD8CB093E4';
+
+    protected $instanceId='469bc07d-ceb7-4671-982d-da9de1820a63';
+    protected $secretKey='8C44E1318BCF26D42D75BE7BD34F852382274E91045D9332C426976284D22497';
 
 	protected $options = [
 		'cluster'=>'ap1',
